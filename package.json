@@ -1,0 +1,45 @@
+{
+  "name": "typographic-quotes",
+  "version": "0.0.0",
+  "description": "Always use curly quotes",
+  "main": "index.es5.js",
+  "scripts": {
+    "coverage": "istanbul cover _mocha -- --require babel/register",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "lint": "jscs --esnext -p airbnb index.js test.js",
+    "pretest": "npm run lint",
+    "test": "mocha --require babel/register",
+    "tdd": "mocha --require babel/register --watch",
+    "precommit": "npm test",
+    "transpile": "babel index.js > index.es5.js",
+    "prepublish": "npm run transpile",
+    "postpublish": "rm *.es5.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matmuchrapna/typographic-quotes"
+  },
+  "keywords": [
+    "typographic",
+    "quotes"
+  ],
+  "author": "Vladimir Starkov <matmuchrapna@gmail.com> (http://vstarkov.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matmuchrapna/typographic-quotes/issues"
+  },
+  "homepage": "https://github.com/matmuchrapna/typographic-quotes",
+  "devDependencies": {
+    "babel": "^5.0.0",
+    "coveralls": "^2.11.2",
+    "husky": "^0.7.0",
+    "istanbul": "^0.3.11",
+    "jscs": "^1.12.0",
+    "mocha": "^2.2.1",
+    "mocha-lcov-reporter": "0.0.2"
+  },
+  "dependencies": {
+    "typographic-quotes-l10n-db": "^1.0.0"
+  }
+}
