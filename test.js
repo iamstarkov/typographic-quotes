@@ -2,20 +2,57 @@ import quotes from './index';
 import { equal } from 'assert';
 
 it('should fix simple quotes', ()=> {
-  const result = 'foo “foo” bar'
-  equal(quotes(`foo 'foo' bar`), result);
-  equal(quotes(`foo "foo" bar`), result);
+  equal(quotes(`foo 'foo' bar`), `foo “foo” bar`);
+  equal(quotes(`foo "foo" bar`), `foo “foo” bar`);
+});
+
+it('should fix simple quotes in the start', ()=> {
+  equal(quotes(`'foo' bar`), `“foo” bar`);
+  equal(quotes(`"foo" bar`), `“foo” bar`);
+});
+
+it('should fix simple quotes in the end', ()=> {
+  equal(quotes(`foo 'foo'`), `foo “foo”`);
+  equal(quotes(`foo "foo"`), `foo “foo”`);
+});
+
+it('should fix simple quotes and not messing up with apostrophes', ()=> {
+  equal(quotes(`foo's 'foo' bar`), `foo's “foo” bar`);
+  equal(quotes(`foo's "foo" bar`), `foo's “foo” bar`);
+});
+
+it('should fix simple several quotes in a row', ()=> {
+  equal(quotes(`foo 'foo' bar 'foo' bar`), `foo “foo” bar “foo” bar`);
+  equal(quotes(`foo "foo" bar "foo" bar`), `foo “foo” bar “foo” bar`);
 });
 
 it('should fix nested quotes', ()=> {
-  const result = 'foo “foo ‘inside’ bar” bar';
-  equal(quotes(`foo "foo 'inside' bar" bar`), result);
-  equal(quotes(`foo 'foo "inside" bar' bar`), result);
+  equal(quotes(`foo "foo 'inside' bar" bar`), `foo “foo ‘inside’ bar” bar`);
+  equal(quotes(`foo 'foo "inside" bar' bar`), `foo “foo ‘inside’ bar” bar`);
 });
 
-it('should fix siblings nested quotes', ()=> {
-  const result = 'foo “foo ‘inside’ bar” bar foo “foo ‘inside’ bar” bar';
-  equal(quotes(`foo "foo 'inside' bar" bar foo "foo 'inside' bar" bar`), result)
-  equal(quotes(`foo 'foo "inside" bar' bar foo 'foo "inside" bar' bar`), result)
-  equal(quotes(`foo 'foo "inside" bar' bar foo "foo 'inside' bar" bar`), result)
+it('should fix nested quotes in start', ()=> {
+  equal(quotes(`"foo 'inside' bar" bar`), `“foo ‘inside’ bar” bar`);
+  equal(quotes(`'foo "inside" bar' bar`), `“foo ‘inside’ bar” bar`);
+});
+
+it('should fix nested quotes in end', ()=> {
+  equal(quotes(`foo "foo 'inside' bar"`), `foo “foo ‘inside’ bar”`);
+  equal(quotes(`foo 'foo "inside" bar'`), `foo “foo ‘inside’ bar”`);
+});
+
+it('should fix several nested quotes', ()=> {
+  equal(quotes(`foo "foo 'inside' bar" bar foo "foo 'inside' bar" bar`),
+               `foo “foo ‘inside’ bar” bar foo “foo ‘inside’ bar” bar`)
+  equal(quotes(`foo 'foo "inside" bar' bar foo 'foo "inside" bar' bar`),
+               `foo “foo ‘inside’ bar” bar foo “foo ‘inside’ bar” bar`)
+  equal(quotes(`foo 'foo "inside" bar' bar foo "foo 'inside' bar" bar`),
+               `foo “foo ‘inside’ bar” bar foo “foo ‘inside’ bar” bar`)
+});
+
+it('should not change apostrophes', ()=> {
+  equal(quotes(`I'm not changing apostrophes`),
+               `I'm not changing apostrophes`);
+  equal(quotes(`I'm not 'changing' apostrophes`),
+               `I'm not “changing” apostrophes`);
 });
