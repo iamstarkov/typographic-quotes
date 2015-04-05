@@ -25,6 +25,7 @@ proper primary and secondary quotes. Pass locale as second parameter, default
 value is `en-us`. This module relies on [`typographic-quotes-l10n-db`][quotesDB] in choosing proper
 quotes for every language.
 
+
 > In American English, double quotes are used normally (the “primary” style).
 > If quote marks are used inside another pair of quote marks, then single quotes
 > are used as the “secondary” style. For example: “Didn't she say ‘I like red
@@ -42,9 +43,16 @@ quotes('foo "foo \'inside\' bar" bar');       // foo “foo ‘inside’ bar” 
 quotes('foo \'foo "inside" bar\' bar', 'da'); // foo »foo ›inside‹ bar« bar
 ```
 
-
-
 [quotesDB]: https://www.npmjs.com/package/typographic-quotes-l10n-db
+
+
+## Apostrophes
+
+If you want to see proper apostrophes too, take a look at [apostrophes][typographic-apostrophes] and [apostrophes-for-possessive-plurals][typographic-apostrophes-for-possessive-plurals] typographic modules. Use first one before this module, second after: `apostrophes → quotes → apostrophes-for-possessive-plurals`. Check complex usage in [typography playground][playground].
+
+[typographic-apostrophes]: https://www.npmjs.com/package/typographic-apostrophes
+[typographic-apostrophes-for-possessive-plurals]: https://www.npmjs.com/package/typographic-apostrophes-for-possessive-plurals
+[playground]: https://github.com/matmuchrapna/typographic-playground
 
 ## License
 
