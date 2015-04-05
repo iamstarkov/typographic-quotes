@@ -48,7 +48,7 @@ quotes('foo \'foo "inside" bar\' bar', 'da'); // foo »foo ›inside‹ bar« ba
 
 ## Apostrophes
 
-If you want to see proper apostrophes too, take a look at [apostrophes][typographic-apostrophes] and [apostrophes-for-possessive-plurals][typographic-apostrophes-for-possessive-plurals] typographic modules. Use first one before this module, second after: `apostrophes → quotes → apostrophes-for-possessive-plurals`. Check complex usage in [typography playground][playground].
+If you want to see proper apostrophes too, take a look at [apostrophes][typographic-apostrophes] and [apostrophes-for-possessive-plurals][typographic-apostrophes-for-possessive-plurals] typographic modules. Use first one before this module, second after: `apostrophes → quotes → apostrophes-for-possessive-plurals` (order is important). Check complex usage in [typography playground][playground].
 
 [typographic-apostrophes]: https://www.npmjs.com/package/typographic-apostrophes
 [typographic-apostrophes-for-possessive-plurals]: https://www.npmjs.com/package/typographic-apostrophes-for-possessive-plurals
