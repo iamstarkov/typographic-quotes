@@ -54,6 +54,14 @@ If you want to see proper apostrophes too, take a look at [apostrophes][typograp
 [typographic-apostrophes-for-possessive-plurals]: https://www.npmjs.com/package/typographic-apostrophes-for-possessive-plurals
 [playground]: https://github.com/matmuchrapna/typographic-playground
 
+
+## Real world examples
+
+Check complex usage with real world examples in [typography playground][playground].
+
+[playground]: https://github.com/matmuchrapna/typographic-playground
+
+
 ## License
 
 MIT © [Vladimir Starkov](http://vstarkov.com/)
