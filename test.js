@@ -16,6 +16,13 @@ it('should fix simple quotes in the end', ()=> {
   equal(quotes(`foo "foo"`), `foo “foo”`);
 });
 
+it('should fix simple quotes ending quite before punctuation', ()=> {
+  equal(quotes(`foo 'foo'. bar`), `foo “foo”. bar`);
+  equal(quotes(`foo "foo". bar`), `foo “foo”. bar`);
+  equal(quotes(`foo 'foo', bar`), `foo “foo”, bar`);
+  equal(quotes(`foo "foo", bar`), `foo “foo”, bar`);
+});
+
 it('should fix simple quotes and not messing up with apostrophes', ()=> {
   equal(quotes(`foo's 'foo' bar`), `foo's “foo” bar`);
   equal(quotes(`foo's "foo" bar`), `foo's “foo” bar`);
@@ -39,6 +46,13 @@ it('should fix nested quotes in start', ()=> {
 it('should fix nested quotes in end', ()=> {
   equal(quotes(`foo "foo 'inside' bar"`), `foo “foo ‘inside’ bar”`);
   equal(quotes(`foo 'foo "inside" bar'`), `foo “foo ‘inside’ bar”`);
+});
+
+it('should fix nested quotes ending quite before punctuation', ()=> {
+  equal(quotes(`foo "foo 'inside' bar". Start`), `foo “foo ‘inside’ bar”. Start`);
+  equal(quotes(`foo 'foo "inside" bar'. Start`), `foo “foo ‘inside’ bar”. Start`);
+  equal(quotes(`foo "foo 'inside' bar", continuing`), `foo “foo ‘inside’ bar”, continuing`);
+  equal(quotes(`foo 'foo "inside" bar', continuing`), `foo “foo ‘inside’ bar”, continuing`);
 });
 
 it('should fix several nested quotes', ()=> {
