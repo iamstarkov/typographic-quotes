@@ -6,6 +6,13 @@ it('should fix simple quotes', ()=> {
   equal(quotes(`foo "foo" bar`), `foo “foo” bar`);
 });
 
+it('should not fuck up not closed quotes', ()=> {
+  equal(quotes(`foo "foo" "bar`), `foo “foo” "bar`);
+  equal(quotes(`foo "foo" 'bar`), `foo “foo” 'bar`);
+  equal(quotes(`foo 'foo' "bar`), `foo “foo” "bar`);
+  equal(quotes(`foo 'foo' 'bar`), `foo “foo” 'bar`);
+});
+
 it('should fix simple quotes in the start', ()=> {
   equal(quotes(`'foo' bar`), `“foo” bar`);
   equal(quotes(`"foo" bar`), `“foo” bar`);
