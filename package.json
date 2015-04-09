@@ -14,7 +14,7 @@
     "precommit": "npm test",
     "transpile": "babel index.js > index.es5.js",
     "prepublish": "npm run transpile",
-    "postpublish": "rm *.es5.js"
+    "postpublish": "rm *.es5.js && git push --follow-tags"
   },
   "repository": {
     "type": "git",
