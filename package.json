@@ -1,6 +1,6 @@
 {
   "name": "typographic-quotes",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Always use curly quotes",
   "main": "index.es5.js",
   "scripts": {
