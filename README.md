@@ -34,13 +34,13 @@ quotes for every language.
 
 ```js
 var quotes = require('typographic-quotes');
-// for american english (en-us) primary quotes are “”, and secondary are ‘’.
-// for danish (da) primary quotes are »«, and secondary are ›‹.
+// in american english (en-us) primary quotes are “”, and secondary are ‘’.
+// in danish (da) primary quotes are »«, and secondary are ›‹.
 
-quotes('foo \'foo\' bar');       // foo “foo” bar
-quotes('foo \'foo\' bar', 'da'); // foo »foo« bar
-quotes('foo "foo \'inside\' bar" bar');       // foo “foo ‘inside’ bar” bar
-quotes('foo \'foo "inside" bar\' bar', 'da'); // foo »foo ›inside‹ bar« bar
+quotes(`foo 'foo' bar`);       // foo “foo” bar
+quotes(`foo 'foo' bar`, 'da'); // foo »foo« bar (in danish)
+quotes(`foo "foo 'inside' bar" bar`);       // foo “foo ‘inside’ bar” bar
+quotes(`foo 'foo "inside" bar' bar`, 'da'); // foo »foo ›inside‹ bar« bar (in danish)
 ```
 
 [quotesDB]: https://www.npmjs.com/package/typographic-quotes-l10n-db
@@ -57,7 +57,7 @@ If you want to see proper apostrophes too, take a look at [apostrophes][typograp
 
 ## Real world examples
 
-Check complex usage with real world examples in [typography playground][playground].
+Check complex usage with real world examples in [typographic playground][playground].
 
 [playground]: https://github.com/matmuchrapna/typographic-playground
 
