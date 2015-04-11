@@ -6,6 +6,11 @@ it('should fix simple quotes', ()=> {
   equal(quotes(`foo "foo" bar`), `foo “foo” bar`);
 });
 
+it('should support locale', ()=> {
+  let locale = 'ru';
+  equal(quotes(`foo 'foo' bar`, {locale}), `foo «foo» bar`);
+});
+
 it('should not fuck up not closed quotes', ()=> {
   equal(quotes(`foo "foo" "bar`), `foo “foo” "bar`);
   equal(quotes(`foo "foo" 'bar`), `foo “foo” 'bar`);
