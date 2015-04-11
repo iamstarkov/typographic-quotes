@@ -30,7 +30,7 @@ quotes for every language.
 > If quote marks are used inside another pair of quote marks, then single quotes
 > are used as the “secondary” style. For example: “Didn't she say ‘I like red
 > best’ when asked her favorite wine?” he wondered to himself.  
-— from the Wikipedia
+— [from the Wikipedia](http://en.wikipedia.org/wiki/Quotation_mark)
 
 ```js
 var quotes = require('typographic-quotes');
