@@ -21,9 +21,10 @@ npm install --save typographic-quotes
 ## Usage
 
 Use typographic quotes for your text with respect to your locale, basically for
-proper primary and secondary quotes. Pass locale as second parameter, default
-value is `en-us`. This module relies on [`typographic-quotes-l10n-db`][quotesDB] in choosing proper
-quotes for every language.
+proper primary and secondary quotes. Pass object with specified locale field as
+second parameter, default value is `en-us`. This module relies on
+[`typographic-quotes-l10n-db`][quotesDB] in choosing proper quotes
+for every language.
 
 
 > In American English, double quotes are used normally (the “primary” style).
@@ -37,10 +38,11 @@ var quotes = require('typographic-quotes');
 // in american english (en-us) primary quotes are “”, and secondary are ‘’.
 // in danish (da) primary quotes are »«, and secondary are ›‹.
 
-quotes(`foo 'foo' bar`);       // foo “foo” bar
-quotes(`foo 'foo' bar`, 'da'); // foo »foo« bar (in danish)
-quotes(`foo "foo 'inside' bar" bar`);       // foo “foo ‘inside’ bar” bar
-quotes(`foo 'foo "inside" bar' bar`, 'da'); // foo »foo ›inside‹ bar« bar (in danish)
+quotes(`foo 'foo' bar`);               // foo “foo” bar
+quotes(`foo "foo 'inside' bar" bar`);  // foo “foo ‘inside’ bar” bar
+// in danish locale
+quotes(`foo 'foo' bar`, { locale: 'da' });              // foo »foo« bar
+quotes(`foo 'foo "inside" bar' bar`, { locale: 'da' }); // foo »foo ›inside‹ bar« bar
 ```
 
 [quotesDB]: https://www.npmjs.com/package/typographic-quotes-l10n-db
