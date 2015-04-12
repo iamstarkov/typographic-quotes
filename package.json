@@ -8,7 +8,7 @@
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
     "lint": "jscs --esnext -p airbnb index.js test.js",
-    "pretest": "npm run lint",
+    "pretest": "# npm run lint",
     "test": "mocha --require babel/register",
     "tdd": "mocha --require babel/register --watch",
     "precommit": "npm test",
