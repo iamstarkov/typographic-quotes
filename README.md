@@ -56,17 +56,9 @@ If you want to see proper apostrophes too, take a look at [apostrophes][typograp
 [typographic-apostrophes-for-possessive-plurals]: https://www.npmjs.com/package/typographic-apostrophes-for-possessive-plurals
 [playground]: https://github.com/matmuchrapna/typographic-playground
 
-
-## Real world examples
-
-Check complex usage with real world examples in [typographic playground][playground].
-
-[playground]: https://github.com/matmuchrapna/typographic-playground
-
-
 ## License
 
-MIT © [Vladimir Starkov](http://vstarkov.com/)
+MIT © [Vladimir Starkov](https://iamstarkov.com/)
 
 [rtfm]: http://practicaltypography.com/straight-and-curly-quotes.html
 [habits]: http://practicaltypography.com/typewriter-habits.html
@@ -74,14 +66,14 @@ MIT © [Vladimir Starkov](http://vstarkov.com/)
 [npm-url]: https://npmjs.org/package/typographic-quotes
 [npm-image]: http://img.shields.io/npm/v/typographic-quotes.svg
 
-[travis-url]: https://travis-ci.org/matmuchrapna/typographic-quotes
-[travis-image]: http://img.shields.io/travis/matmuchrapna/typographic-quotes.svg
+[travis-url]: https://travis-ci.org/iamstarkov/typographic-quotes
+[travis-image]: http://img.shields.io/travis/iamstarkov/typographic-quotes.svg
 
-[coveralls-url]: https://coveralls.io/r/matmuchrapna/typographic-quotes
-[coveralls-image]: http://img.shields.io/coveralls/matmuchrapna/typographic-quotes.svg
+[coveralls-url]: https://coveralls.io/r/iamstarkov/typographic-quotes
+[coveralls-image]: http://img.shields.io/coveralls/iamstarkov/typographic-quotes.svg
 
-[depstat-url]: https://david-dm.org/matmuchrapna/typographic-quotes
-[depstat-image]: https://david-dm.org/matmuchrapna/typographic-quotes.svg
+[depstat-url]: https://david-dm.org/iamstarkov/typographic-quotes
+[depstat-image]: https://david-dm.org/iamstarkov/typographic-quotes.svg
 
-[depstat-dev-url]: https://david-dm.org/matmuchrapna/typographic-quotes
-[depstat-dev-image]: https://david-dm.org/matmuchrapna/typographic-quotes/dev-status.svg
+[depstat-dev-url]: https://david-dm.org/iamstarkov/typographic-quotes
+[depstat-dev-image]: https://david-dm.org/iamstarkov/typographic-quotes/dev-status.svg
