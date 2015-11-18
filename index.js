@@ -2,7 +2,7 @@ import quotesDB from 'typographic-quotes-l10n-db';
 
 export default (input, {locale = 'en-us'} = {})=> {
   const localeQuotes = quotesDB[locale];
-  const pattern = /(^|\s)(?:"(.*?)"|'(.*?)')(\s|$|\.|,)/gim;
+  const pattern = /(^|\s)(?:"(.*?)"|'(.*?)')(\s|$|\.|,|\?|!)/gim;
 
   const primary = (match, before='', part1='', part2='', after='')=> {
     const quotes = [localeQuotes[0], localeQuotes[1]];
