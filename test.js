@@ -6,6 +6,11 @@ it('should fix simple quotes', ()=> {
   equal(quotes(`foo "foo" bar`), `foo “foo” bar`);
 });
 
+it('should fix simple quotes for French', ()=> {
+  let locale = 'fr';
+  equal(quotes(`foo 'foo' bar`, { locale }), `foo « foo » bar`);
+});
+
 it('should support locale', ()=> {
   let locale = 'ru';
   equal(quotes(`foo 'foo' bar`, {locale}), `foo «foo» bar`);
@@ -48,6 +53,12 @@ it('should fix simple several quotes in a row', ()=> {
 it('should fix nested quotes', ()=> {
   equal(quotes(`foo "foo 'inside' bar" bar`), `foo “foo ‘inside’ bar” bar`);
   equal(quotes(`foo 'foo "inside" bar' bar`), `foo “foo ‘inside’ bar” bar`);
+});
+
+it('should fix nested quotes for French', ()=> {
+  const locale = 'fr';
+  equal(quotes(`foo "foo 'inside' bar" bar`, { locale }), `foo « foo “ inside ” bar » bar`);
+  equal(quotes(`foo 'foo "inside" bar' bar`, { locale }), `foo « foo “ inside ” bar » bar`);
 });
 
 it('should fix nested quotes in start', ()=> {
