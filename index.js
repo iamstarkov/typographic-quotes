@@ -1,6 +1,6 @@
 import quotesDB from 'typographic-quotes-l10n-db';
 
-export default (input, {locale = 'en-us'} = {})=> {
+export default function typographicQuotes(input = '', {locale = 'en-us'} = {}) {
   const localeQuotes = quotesDB[locale];
   const pattern = /(^|\s)(?:"(.*?)"|'(.*?)')(\s|$|\.|,|\?|!)/gim;
 
