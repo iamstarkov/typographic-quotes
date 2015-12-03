@@ -1,8 +1,12 @@
-import quotesDB from 'typographic-quotes-l10n-db';
+import db from 'typographic-quotes-l10n-db';
 
-export default function typographicQuotes(input = '', {locale = 'en-us'} = {}) {
+export default function typographicQuotes(input = '', { locale } = {}) {
+  if (Object.keys(db).indexOf(locale) === -1) {
+    return input;
+  }
+  const localeQuotes = db[locale];
   let separator = '';
-  const localeQuotes = quotesDB[locale];
+
   const pattern = /(^|\s)(?:"(.*?)"|'(.*?)')(\s|$|\.|,|\?|!)/gim;
   const handleQuotes = (quotes, cb) =>
     (match, before='', part1='', part2='', after='') => {
