@@ -4,7 +4,6 @@
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
-[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
 > [Always use curly quotes][rtfm]
 
@@ -22,7 +21,7 @@ npm install --save typographic-quotes
 
 Use typographic quotes for your text with respect to your locale, basically for
 proper primary and secondary quotes. Pass object with specified locale field as
-second parameter, default value is `en-us`. This module relies on
+second parameter. **`locale` field is mandatory.** This module relies on
 [`typographic-quotes-l10n-db`][quotesDB] in choosing proper quotes
 for every language.
 
@@ -35,14 +34,15 @@ for every language.
 
 ```js
 var quotes = require('typographic-quotes');
+
 // in american english (en-us) primary quotes are “”, and secondary are ‘’.
 // in danish (da) primary quotes are »«, and secondary are ›‹.
 
-quotes(`foo 'foo' bar`);               // foo “foo” bar
-quotes(`foo "foo 'inside' bar" bar`);  // foo “foo ‘inside’ bar” bar
-// in danish locale
-quotes(`foo 'foo' bar`, { locale: 'da' });              // foo »foo« bar
-quotes(`foo 'foo "inside" bar' bar`, { locale: 'da' }); // foo »foo ›inside‹ bar« bar
+// `locale` field is mandatory
+quotes(`foo 'foo' bar`, { locale: 'en-us' }); // foo “foo” bar
+quotes(`foo 'foo' bar`, { locale: 'da' });    // foo »foo« bar
+quotes(`foo "foo 'inside' bar" bar`, { locale: 'en-us' }); // foo “foo ‘inside’ bar” bar
+quotes(`foo 'foo "inside" bar' bar`, { locale: 'da' });    // foo »foo ›inside‹ bar« bar
 ```
 
 [quotesDB]: https://www.npmjs.com/package/typographic-quotes-l10n-db
@@ -74,6 +74,3 @@ MIT © [Vladimir Starkov](https://iamstarkov.com/)
 
 [depstat-url]: https://david-dm.org/iamstarkov/typographic-quotes
 [depstat-image]: https://david-dm.org/iamstarkov/typographic-quotes.svg
-
-[depstat-dev-url]: https://david-dm.org/iamstarkov/typographic-quotes
-[depstat-dev-image]: https://david-dm.org/iamstarkov/typographic-quotes/dev-status.svg
