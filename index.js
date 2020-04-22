@@ -7,13 +7,13 @@ export default function typographicQuotes(input = '', { locale } = {}) {
   const localeQuotes = db[locale];
   let separator = '';
 
-  const pattern = /(^|\s|[\[(])(?:"(.*?)"|'(.*?)')(\s|$|[.,:;?!…\])])/gim;
+  const pattern = /(?<=^|\s|[\[(\-–—])(?:"(.*?)"|'(.*?)')(?=$|\s|[.,:;?!…\])\-–—])/gim;
   const handleQuotes = (quotes, cb) =>
-    (match, before='', part1='', part2='', after='') => {
+    (match, part1='', part2='') => {
       let text = (part1 + part2);
       if (cb) { text = text.replace(pattern, cb); }
       if (locale === 'fr') { separator = ' '; }
-      return `${before}${quotes[0]}${separator}${text}${separator}${quotes[1]}${after}`;
+      return `${quotes[0]}${separator}${text}${separator}${quotes[1]}`;
     }
 
   return input.replace(pattern,

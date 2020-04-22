@@ -80,3 +80,18 @@ it('should fix quotes followed by several dots', () =>
 
 it('should fix quotes followed by an ellipsis', () =>
   equal(quotes(`foo "bar"… baz`, american), `foo “bar”… baz`));
+
+it('should fix quotes preceded by a hyphen', () =>
+  equal(quotes(`anti-"foo"`, american), `anti-“foo”`));
+
+it('should fix quotes followed by a hyphen', () =>
+  equal(quotes(`"foo"-ish`, american), `“foo”-ish`));
+
+it('should fix quotes around hyphens', () =>
+  equal(quotes(`"foo"-"bar"`, american), `“foo”-“bar”`));
+
+it('should fix quotes near en-dashes', () =>
+  equal(quotes(`"foo"–"bar"`, american), `“foo”–“bar”`));
+
+it('should fix quotes near em-dashes', () =>
+  equal(quotes(`"foo"—"bar"`, american), `“foo”—“bar”`));
