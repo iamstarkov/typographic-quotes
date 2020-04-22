@@ -54,6 +54,21 @@ it('should fix nested quotes in end', () =>
 it('should not change apostrophes', () =>
   equal(quotes(`I'm not changing apostrophes`, american), `I'm not changing apostrophes`));
 
+it('should fix quotes preceded by a paren', () =>
+  equal(quotes(`("foo" bar baz)`, american), `(“foo” bar baz)`));
+
+it('should fix quotes followed by a paren', () =>
+  equal(quotes(`(foo bar "baz")`, american), `(foo bar “baz”)`));
+
+it('should fix quotes inside parens', () =>
+  equal(quotes(`(foo "bar" baz)`, american), `(foo “bar” baz)`));
+
+it('should fix quotes immediately surroundedy by parens', () =>
+  equal(quotes(`("foo bar baz")`, american), `(“foo bar baz”)`));
+
+it('should fix quotes surrounded by square brackets', () =>
+  equal(quotes(`["foo bar baz"]`, american), `[“foo bar baz”]`));
+
 it('should fix quotes followed by several dots', () =>
   equal(quotes(`foo "bar"... baz`, american), `foo “bar”... baz`));
 

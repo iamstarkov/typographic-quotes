@@ -7,7 +7,7 @@ export default function typographicQuotes(input = '', { locale } = {}) {
   const localeQuotes = db[locale];
   let separator = '';
 
-  const pattern = /(^|\s)(?:"(.*?)"|'(.*?)')(\s|$|\.|,|\?|!)/gim;
+  const pattern = /(^|\s|[\[(])(?:"(.*?)"|'(.*?)')(\s|$|[.,?!…\])])/gim;
   const handleQuotes = (quotes, cb) =>
     (match, before='', part1='', part2='', after='') => {
       let text = (part1 + part2);
