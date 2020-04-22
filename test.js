@@ -53,3 +53,9 @@ it('should fix nested quotes in end', () =>
 
 it('should not change apostrophes', () =>
   equal(quotes(`I'm not changing apostrophes`, american), `I'm not changing apostrophes`));
+
+it('should fix quotes followed by several dots', () =>
+  equal(quotes(`foo "bar"... baz`, american), `foo “bar”... baz`));
+
+it('should fix quotes followed by an ellipsis', () =>
+  equal(quotes(`foo "bar"… baz`, american), `foo “bar”… baz`));
