@@ -69,6 +69,12 @@ it('should fix quotes immediately surroundedy by parens', () =>
 it('should fix quotes surrounded by square brackets', () =>
   equal(quotes(`["foo bar baz"]`, american), `[“foo bar baz”]`));
 
+it('should fix quotes followed by a semicolon', () =>
+  equal(quotes(`foo "bar"; baz`, american), `foo “bar”; baz`));
+
+it('should fix quotes followed by a colon', () =>
+  equal(quotes(`foo "bar": baz`, american), `foo “bar”: baz`));
+
 it('should fix quotes followed by several dots', () =>
   equal(quotes(`foo "bar"... baz`, american), `foo “bar”... baz`));
 
